@@ -142,6 +142,7 @@
     conditional_formatting_include_nulls: false
     series_types: {}
     defaults_version: 1
+    title_hidden: true
     listen:
       Usage Date: storage_details_v2.usage_date
       Invoice Month: storage_details_v2.invoice_month
@@ -186,7 +187,7 @@
     limit: 500
     query_timezone: Asia/Shanghai
     custom_color_enabled: true
-    show_single_value_title: true
+    show_single_value_title: false
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false

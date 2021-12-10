@@ -203,7 +203,7 @@
     limit: 500
     query_timezone: Asia/Shanghai
     custom_color_enabled: true
-    show_single_value_title: true
+    show_single_value_title: false
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false
