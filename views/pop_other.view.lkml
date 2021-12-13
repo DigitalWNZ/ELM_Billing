@@ -1,6 +1,6 @@
 include: "compute_others_details.view.lkml"
 
-view: pop {
+view: pop_other {
   extends: [compute_others_details]
 
   filter: current_date_range {
@@ -113,6 +113,17 @@ view: pop {
             NULL
         {% endif %}
         ;;
+  }
+
+  dimension: in_range {
+    description: "We just use this for the aggregate measure"
+    type: string
+    sql:
+        {% if current_date_range._is_filtered %}
+            CASE
+            WHEN {% condition current_date_range %} timestamp(${usage_raw}) {% endcondition %} THEN 'yes'
+            WHEN ${usage_date} between ${period_2_start} and ${period_2_end} THEN 'yes' END
+        {% else %} NULL {% endif %} ;;
   }
 
   dimension: period_filtered_measures {
@@ -250,5 +261,5 @@ view: pop {
 
 # ---------- EXPLORE ---------- #
 
-explore: pop {
+explore: pop_other {
 }
