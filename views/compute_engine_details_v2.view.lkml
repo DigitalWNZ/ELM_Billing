@@ -1,4 +1,5 @@
 include: "navigation_bar.view.lkml"
+
 view: compute_engine_details_v2 {
   sql_table_name: `report.compute_engine_details_v2`
     ;;
@@ -83,54 +84,63 @@ view: compute_engine_details_v2 {
     type: sum
     sql: ${cpu} ;;
     value_format_name: decimal_2
+    # drill_fields: [aggregation_dim_0,measure_dim_0]
   }
 
   measure: sum_GPU {
     type: sum
     sql: ${gpu} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,gpu]
   }
 
   measure: sum_RAM {
     type: sum
     sql: ${ram} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,ram]
   }
 
   measure: sum_PDHDD {
     type: sum
     sql: ${pd_hdd} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,pd_hdd]
   }
 
   measure: sumb_LOCAL_SSD {
     type:sum
     sql: ${local_ssd} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,local_ssd]
   }
 
   measure: sum_PDSSD {
     type: sum
-    sql: pd_ssd ;;
+    sql: ${pd_ssd} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,pd_ssd]
   }
 
   measure: sum_NETWORK {
     type: sum
     sql: ${network} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,network]
   }
 
   measure: sum_OTHERS {
     type: sum
     sql: ${others} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,others]
   }
 
   measure: sum_SUBTOTALS {
     type: sum
     sql: ${subtotal} ;;
     value_format_name: decimal_2
+    # drill_fields: [project_id,instance_name,billing_name,subtotal]
   }
 
 
